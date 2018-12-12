@@ -149,6 +149,7 @@ Particle.prototype.render = function( ctx ) {
   size = Math.max( 0, size );
   ctx.beginPath();
   ctx.arc( this.position.x, this.position.y, size, 0, TAU );
+  ctx.fillStyle = '#66CCFF';
   ctx.fill();
   ctx.closePath();
 };
@@ -856,11 +857,11 @@ window.BreathingHalftone = Halftone;
 })( window );
 
 </script>
-  
-  
+
+
       <link rel="stylesheet" href="css/style.css">
 
-  
+
 </head>
 
 <body>

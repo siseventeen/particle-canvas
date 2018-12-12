@@ -2,6 +2,7 @@ body, html {
   padding: 0;
   margin: 0;
   color: blue;
+  background-color: #222222;
 }
 body{
 	height:50%;
@@ -10,10 +11,15 @@ body{
 img {
   visibility: visible !important;
   display: block !important;
+  opacity: 0;
 }
 
 img, canvas {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+canvas {
+  opacity: 0.4;
 }
