@@ -18,8 +18,9 @@ img, canvas {
   position: absolute;
   top: 0;
   left: 0;
+  background: transparent;
 }
 
 canvas {
-  opacity: 0.4;
+  opacity: 1;
 }
