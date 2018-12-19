@@ -2,7 +2,7 @@ body, html {
   padding: 0;
   margin: 0;
   color: blue;
-  background-color: #222222;
+  background: linear-gradient(to bottom, rgba(64,58,248,100), rgba(153,151,255,100));
 }
 body{
 	height:50%;
