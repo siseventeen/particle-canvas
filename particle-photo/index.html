@@ -149,6 +149,7 @@ Particle.prototype.render = function( ctx ) {
   size = Math.max( 0, size );
   ctx.beginPath();
   ctx.arc( this.position.x, this.position.y, size, 0, TAU );
+  ctx.fillStyle='#66ccff';
   ctx.fill();
   ctx.closePath();
 };
@@ -523,8 +524,9 @@ Halftone.prototype.update = function() {
 Halftone.prototype.render = function() {
   // clear
   this.ctx.globalCompositeOperation = 'source-over';
-  this.ctx.fillStyle = this.options.isAdditive ? 'black' : 'white';
-  this.ctx.fillRect( 0, 0, this.width, this.height );
+  // this.ctx.fillStyle = this.options.isAdditive ? 'black' : 'white';
+  // this.ctx.fillRect( 0, 0, this.width, this.height );
+  this.ctx.clearRect( 0, 0, this.width, this.height );
 
   // composite grids
   this.ctx.globalCompositeOperation = this.options.isAdditive ? 'lighter' : 'darker';
@@ -555,8 +557,9 @@ var channelFillStyles = {
 Halftone.prototype.renderGrid = function( channel ) {
   var proxy = this.proxyCanvases[ channel ];
   // clear
-  proxy.ctx.fillStyle = this.options.isAdditive ? 'black' : 'white';
-  proxy.ctx.fillRect( 0, 0, this.width, this.height );
+  // proxy.ctx.fillStyle = this.options.isAdditive ? 'black' : 'white';
+  // proxy.ctx.fillRect( 0, 0, this.width, this.height );
+  proxy.ctx.clearRect( 0, 0, this.width, this.height );
 
   // set fill color
   var blend = this.options.isAdditive ? 'additive' : 'subtractive';
@@ -856,11 +859,11 @@ window.BreathingHalftone = Halftone;
 })( window );
 
 </script>
-  
-  
+
+
       <link rel="stylesheet" href="css/style.css">
 
-  
+
 </head>
 
 <body>
