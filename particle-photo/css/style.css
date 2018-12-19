@@ -12,13 +12,13 @@ body{
         margin: 0;
 	height:100%;
 	width: 100%;
-	background: -webkit-linear-gradient(#403AF8, #9997FF);
+	background: -webkit-linear-gradient(#130E97, #C0BFFD);
   	/* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(#403AF8, #9997FF);
+  	background: -o-linear-gradient(#130E97, #C0BFFD);
   	/* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(#403AF8, #9997FF);
+  	background: -moz-linear-gradient(#130E97, #C0BFFD);
   	/* For Firefox 3.6 to 15 */
-  	background: linear-gradient(#403AF8, #9997FF);
+  	background: linear-gradient(#130E97, #C0BFFD);
 	
 img {
   visibility: visible !important;
