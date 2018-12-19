@@ -12,13 +12,13 @@ body{
         margin: 0;
 	height:100%;
 	width: 100%;
-	background: -webkit-linear-gradient(#130E97, #C0BFFD);
+	background: -webkit-linear-gradient(#352A90, #A39FE6);
   	/* For Safari 5.1 to 6.0 */
-  	background: -o-linear-gradient(#130E97, #C0BFFD);
+  	background: -o-linear-gradient(#352A90, #A39FE6);
   	/* For Opera 11.1 to 12.0 */
-  	background: -moz-linear-gradient(#130E97, #C0BFFD);
+  	background: -moz-linear-gradient(#352A90, #A39FE6);
   	/* For Firefox 3.6 to 15 */
-  	background: linear-gradient(#130E97, #C0BFFD);
+  	background: linear-gradient(#352A90, #A39FE6);
 }
 	
 img {
