@@ -1,15 +1,25 @@
-body, html {
+html {
   padding: 0;
   margin: 0;
+  height:100%;
+  width: 100%;
   color: blue;
   background-color:#222222;
   
 }
-body{
+body{	
+	padding: 0;
+        margin: 0;
 	height:50%;
 	width: 50%;
-	background-image: linear-gradient rgba(64,58,248,100), rgba(153,151,255,100));
-}
+	background: -webkit-linear-gradient(#403AF8, #9997FF);
+  	/* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(#403AF8, #9997FF);
+  	/* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(#403AF8, #9997FF);
+  	/* For Firefox 3.6 to 15 */
+  	background: linear-gradient(#403AF8, #9997FF);
+	
 img {
   visibility: visible !important;
   display: block !important;
