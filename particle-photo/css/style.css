@@ -19,6 +19,7 @@ body{
   	background: -moz-linear-gradient(#130E97, #C0BFFD);
   	/* For Firefox 3.6 to 15 */
   	background: linear-gradient(#130E97, #C0BFFD);
+}
 	
 img {
   visibility: visible !important;
@@ -28,8 +29,8 @@ img {
 
 img, canvas {
   position: absolute;
-  top: -60px;
-  left: -55px;
+  top: 2px;
+  left: 5px;
   background: transparent;
 }
 
