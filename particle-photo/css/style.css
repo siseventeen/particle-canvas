@@ -2,11 +2,13 @@ body, html {
   padding: 0;
   margin: 0;
   color: blue;
-  background: linear-gradient(to bottom, rgba(64,58,248,100), rgba(153,151,255,100));
+  background-color:#222222;
+  
 }
 body{
 	height:50%;
 	width: 50%;
+	background-image: linear-gradient rgba(64,58,248,100), rgba(153,151,255,100));
 }
 img {
   visibility: visible !important;
