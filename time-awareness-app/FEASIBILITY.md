@@ -100,7 +100,7 @@
 ┌─────────────────────────────────────────────────┐
 │                   Main App                       │
 │  ┌─────────────┐  ┌──────────┐  ┌────────────┐ │
-│  │ Task Entry   │  │ Timer    │  │ History    │ │
+│  │ Task Entry   │  │ Timer    │  │ Settings   │ │
 │  │ Screen       │  │ Screen   │  │ Screen     │ │
 │  └──────┬───────┘  └────┬─────┘  └────────────┘ │
 │         │               │                        │
@@ -108,7 +108,7 @@
 │  │         Shared Data Layer (App Group)        │ │
 │  │  - Current task state                        │ │
 │  │  - Time progress data                        │ │
-│  │  - Task history                              │ │
+│  │  - Recent tasks (for smart suggestions)      │ │
 │  └──────┬───────────────┬──────────────────────┘ │
 │         │               │                        │
 │  ┌──────┴───────┐  ┌────┴─────────────────────┐ │
@@ -122,8 +122,10 @@
 │  ┌──────────────────┐  ┌──────────────────────┐ │
 │  │ Lock Screen      │  │ Home Screen          │ │
 │  │ Widgets          │  │ Widgets              │ │
-│  │ (accessory       │  │ (systemSmall/Medium) │ │
-│  │  Circular/Rect)  │  │                      │ │
+│  │ - Concentric     │  │ (systemSmall/Medium) │ │
+│  │   rings (D/W/Y)  │  │                      │ │
+│  │ - Dot matrix     │  │                      │ │
+│  │   (year grid)    │  │                      │ │
 │  └──────────────────┘  └──────────────────────┘ │
 │  ┌──────────────────────────────────────────────┐│
 │  │ Live Activity (active task countdown)        ││
@@ -171,3 +173,62 @@ The lock screen widget serves double duty:
 | Timer check-in when time expires | **Yes** | `UNTimeIntervalNotificationTrigger` + Live Activity |
 
 The app is buildable with one design adjustment: the unlock prompt becomes a tap-to-start widget interaction instead of an automatic popup.
+
+---
+
+## Confirmed PRD Requirements
+
+### Lock Screen Widgets
+
+**Widget 1 — Concentric Rings** (`accessoryCircular`):
+- 3 concentric rings sharing the same center point
+- Outermost ring = **Year** remaining
+- Middle ring = **Week** remaining
+- Innermost ring = **Day** remaining
+- Tapping opens the app to the task entry screen
+- Monochrome rendering (iOS lock screen constraint)
+
+**Widget 2 — Year Dot Matrix** (`accessoryRectangular`):
+- GitHub-style contribution grid layout (365 dots)
+- Elapsed days are dimmed/filled, remaining days are bright
+- Shows exact position in the year at a glance
+
+### Task Entry Flow
+
+1. User taps lock screen widget → app opens to task entry screen
+2. **Smart suggestions**: App shows recent/frequent task names at the top for quick selection
+3. User can also type a free-text task name
+4. **Duration**: Preset buttons — 15m, 25m (pomodoro), 30m, 45m, 60m, Custom
+5. **Calendar picker**: User selects which calendar to save to (defaults to last used)
+6. Task starts immediately after confirmation
+
+### Calendar Integration
+
+- Auto-save task as calendar event (task name → event title, now → start, now + duration → end)
+- Show brief confirmation toast with "Edit" button
+- "Edit" opens `EKEventEditViewController` for adding notes, location, etc.
+- User can choose any of their calendars (not locked to a single dedicated calendar)
+
+### Timer & Check-In
+
+- While task is active: Live Activity countdown on lock screen (optional, nice-to-have for v1)
+- When time expires: local notification with actions:
+  - **"Done"** — marks task complete, ends session
+  - **"5 more min"** — extends the timer, reschedules notification
+  - **"Abandon"** — ends session, optionally deletes the calendar event
+
+### Device Target
+
+- **iPhone only** (iOS 17+)
+- iPad and Apple Watch deferred to future versions
+
+### Monetization
+
+- Free at launch
+- Monetization strategy TBD for later
+
+### What the App Does NOT Do
+
+- No in-app task history or analytics (calendar is the record of truth)
+- No auto-prompt on unlock (not possible on iOS)
+- No Apple Watch or iPad support in v1
